@@ -8,6 +8,7 @@ import {
 } from 'drizzle-orm/pg-core'
 import type { AdapterAccount } from '@auth/core/adapters'
 import { relations } from 'drizzle-orm'
+import { createSelectSchema } from 'drizzle-zod'
 
 export const users = pgTable('user', {
 	id: text('id').notNull().primaryKey(),

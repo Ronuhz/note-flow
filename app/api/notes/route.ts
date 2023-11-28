@@ -36,3 +36,31 @@ export async function POST(request: NextRequest) {
 		)
 	}
 }
+
+export async function GET(request: NextRequest) {
+	const dbUser = await getDatabaseUser()
+
+	if (!dbUser)
+		return NextResponse.json(
+			{
+				error:
+					'Failed to get all the notes because your account is not in our database.',
+			},
+			{ status: 404 }
+		)
+
+	try {
+		const allNotes = await db.query.notes.findMany({
+			where: (notes, { eq }) => eq(notes.userId, dbUser?.id),
+		})
+
+		return NextResponse.json(allNotes)
+	} catch (error) {
+		return NextResponse.json(
+			{
+				error: 'Failed to get all notes from database.',
+			},
+			{ status: 500 }
+		)
+	}
+}
