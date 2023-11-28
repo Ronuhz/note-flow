@@ -1,27 +1,40 @@
 {
-  "name": "note-flow",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.3"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.3"
-  }
+	"name": "note-flow",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbo",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"drizzle:generate": "drizzle-kit generate:pg",
+		"drizzle:push": "drizzle-kit push:pg"
+	},
+	"dependencies": {
+		"@auth/drizzle-adapter": "^0.3.8",
+		"@next/env": "^14.0.3",
+		"@nextui-org/react": "^2.2.9",
+		"@tanstack/react-query": "^5.8.9",
+		"axios": "^1.6.2",
+		"drizzle-orm": "^0.29.0",
+		"framer-motion": "^10.16.5",
+		"lucide-react": "^0.293.0",
+		"next": "14.0.3",
+		"next-auth": "^4.24.5",
+		"postgres": "^3.4.3",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"autoprefixer": "^10.0.1",
+		"drizzle-kit": "^0.20.4",
+		"eslint": "^8",
+		"eslint-config-next": "14.0.3",
+		"postcss": "^8",
+		"tailwindcss": "^3.3.0",
+		"typescript": "^5"
+	}
 }
