@@ -3,7 +3,9 @@
 import { Button } from '@nextui-org/react'
 import { StickyNote } from 'lucide-react'
 
-type props = { title: string | null }
+type props = {
+	title: string | null
+}
 
 function NoteItem({ title }: props) {
 	return (

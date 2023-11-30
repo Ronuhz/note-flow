@@ -4,7 +4,7 @@ import { Button } from '@nextui-org/react'
 import { useSession, signOut, signIn } from 'next-auth/react'
 import React from 'react'
 
-const LogOutButton = () => {
+const AuthButton = () => {
 	const { status } = useSession()
 
 	switch (status) {
@@ -22,11 +22,15 @@ const LogOutButton = () => {
 
 		default:
 			return (
-				<Button size='sm' color='primary' onClick={() => signIn('google')}>
+				<Button
+					size='sm'
+					color='primary'
+					onClick={() => signIn('google', { callbackUrl: '/editor' })}
+				>
 					Log In
 				</Button>
 			)
 	}
 }
 
-export default LogOutButton
+export default AuthButton

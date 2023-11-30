@@ -1,11 +1,9 @@
-import { getDatabaseUser } from '~/server/database/utils'
+import AuthButton from '~/components/ui/buttons/auth-button'
 
 export default async function Home() {
-	const dbUser = await getDatabaseUser()
-
 	return (
-		<main className='min-h-screen'>
-			<h1>{dbUser?.name}</h1>
+		<main className='min-h-screen flex items-center justify-center'>
+			<AuthButton />
 		</main>
 	)
 }
