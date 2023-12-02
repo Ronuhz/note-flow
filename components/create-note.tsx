@@ -10,12 +10,15 @@ import {
 	ModalHeader,
 	useDisclosure,
 } from '@nextui-org/react'
+import { useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { ChangeEvent, useState } from 'react'
 
 const CreateNoteButton = () => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure()
 	const [title, setTitle] = useState('')
+
+	const queryClient = useQueryClient()
 
 	function onOpenButtonClicked() {
 		setTitle('')
@@ -31,6 +34,7 @@ const CreateNoteButton = () => {
 		if (title.length === 0) return
 
 		await axios.post('/api/notes', { title })
+		queryClient.invalidateQueries({ queryKey: ['notes'] })
 	}
 
 	return (

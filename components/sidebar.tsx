@@ -31,7 +31,7 @@ const useSidebar = () => {
 					<AuthButton />
 				</div>
 
-				<div className='flex flex-col gap-2 p-3'>
+				<div className='flex flex-col-reverse gap-2 p-3'>
 					{/* SKELETON */}
 					{isLoading && (
 						<>

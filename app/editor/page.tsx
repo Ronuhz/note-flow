@@ -4,7 +4,6 @@ import { Button, ButtonGroup, Tab, Tabs, Textarea } from '@nextui-org/react'
 import {
 	Bold,
 	Code,
-	Heading,
 	Heading1,
 	Heading2,
 	Heading3,
@@ -12,9 +11,7 @@ import {
 	Image,
 	Italic,
 	Link,
-	List,
 	Strikethrough,
-	Underline,
 } from 'lucide-react'
 import { useRef } from 'react'
 import Markdown from 'react-markdown'
@@ -33,6 +30,7 @@ const Editor = () => {
 				selectionStart || 0,
 				selectionEnd || 0
 			)
+
 			const after = value.substring(selectionEnd || 0)
 
 			setSelectedNote((prev) => {
@@ -50,6 +48,8 @@ const Editor = () => {
 				selectionStart || 0,
 				selectionEnd || 0
 			)
+			if (selectedText.length === 0) return
+
 			const after = value.substring(selectionEnd || 0)
 
 			if (before.endsWith(formatSymbol) && after.startsWith(formatSymbol)) {

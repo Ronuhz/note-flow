@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@nextui-org/react'
+import { Button, Spinner } from '@nextui-org/react'
 import { useSession, signOut, signIn } from 'next-auth/react'
 import React from 'react'
 
@@ -20,7 +20,7 @@ const AuthButton = () => {
 				</Button>
 			)
 
-		default:
+		case 'unauthenticated':
 			return (
 				<Button
 					size='sm'
@@ -28,6 +28,13 @@ const AuthButton = () => {
 					onClick={() => signIn('google', { callbackUrl: '/editor' })}
 				>
 					Log In
+				</Button>
+			)
+
+		default:
+			return (
+				<Button size='sm' variant='flat' disabled>
+					<Spinner size='sm' />
 				</Button>
 			)
 	}

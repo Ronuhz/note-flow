@@ -28,7 +28,7 @@ export const notes = pgTable('notes', {
 		.notNull()
 		.references(() => users.id, { onDelete: 'cascade' }),
 	title: text('title'),
-	body: text('body').default('Here goes your text...'),
+	body: text('body').default('# New note, new beginnings'),
 	createdAt: timestamp('created_at').defaultNow().notNull(),
 	updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
